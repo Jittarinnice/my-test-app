@@ -4,9 +4,7 @@ import {get, getModelSchemaRef, HttpErrors, param, post, put, requestBody} from 
 import {Files} from '../models'
 import { FilesRepository } from '../repositories'
 
-"use strict";
 const nodemailer = require("nodemailer");
-
 const transporter = nodemailer.createTransport({
   host: "smtp.forwardemail.net",
   port: 465,
