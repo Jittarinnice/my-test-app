@@ -1,7 +1,7 @@
 import {inject} from '@loopback/core';
 import {juggler} from '@loopback/repository';
-import { BaseCrudRepository } from '../models';
-import { Files, FilesRelations } from '../models/files.model';
+import {BaseCrudRepository} from '../models';
+import {Files, FilesRelations} from '../models/files.model';
 export class FilesRepository extends BaseCrudRepository<
   Files,
   typeof Files.prototype.id,

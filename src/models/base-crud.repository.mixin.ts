@@ -6,8 +6,8 @@ import {
   FilterExcludingWhere,
   juggler,
   Options,
-} from '@loopback/repository'
-import {CustomError} from '.'
+} from '@loopback/repository';
+import {CustomError} from '.';
 
 export class BaseCrudRepository<
   T extends Entity,
@@ -18,7 +18,7 @@ export class BaseCrudRepository<
     public entityClass: typeof Entity & {prototype: T},
     public dataSource: juggler.DataSource,
   ) {
-    super(entityClass, dataSource)
+    super(entityClass, dataSource);
   }
 
   public async findById(
@@ -27,12 +27,12 @@ export class BaseCrudRepository<
     options?: Options,
   ): Promise<T & Relations> {
     try {
-      return await super.findById(id, filter, options)
+      return await super.findById(id, filter, options);
     } catch (error) {
       if (error instanceof EntityNotFoundError) {
-        throw this.notFoundError(id)
+        throw this.notFoundError(id);
       }
-      throw error
+      throw error;
     }
   }
 
@@ -42,12 +42,12 @@ export class BaseCrudRepository<
     options?: Options,
   ): Promise<void> {
     try {
-      return await super.updateById(id, data, options)
+      return await super.updateById(id, data, options);
     } catch (error) {
       if (error instanceof EntityNotFoundError) {
-        throw this.notFoundError(id)
+        throw this.notFoundError(id);
       }
-      throw error
+      throw error;
     }
   }
   public async replaceById(
@@ -56,22 +56,22 @@ export class BaseCrudRepository<
     options?: Options,
   ): Promise<void> {
     try {
-      return await super.replaceById(id, data, options)
+      return await super.replaceById(id, data, options);
     } catch (error) {
       if (error instanceof EntityNotFoundError) {
-        throw this.notFoundError(id)
+        throw this.notFoundError(id);
       }
-      throw error
+      throw error;
     }
   }
   public async deleteById(id: ID, options?: Options): Promise<void> {
     try {
-      return await super.deleteById(id, options)
+      return await super.deleteById(id, options);
     } catch (error) {
       if (error instanceof EntityNotFoundError) {
-        throw this.notFoundError(id)
+        throw this.notFoundError(id);
       }
-      throw error
+      throw error;
     }
   }
 
@@ -79,6 +79,6 @@ export class BaseCrudRepository<
     return new CustomError(
       `${this.entityClass.modelName} with id ${id} does not exist`,
       `${this.entityClass.name}NotFound`,
-    )
+    );
   }
 }

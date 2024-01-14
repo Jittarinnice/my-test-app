@@ -2,8 +2,8 @@ import {Entity, model, property} from '@loopback/repository';
 
 @model({
   settings: {
-    mongodb: {collection: "files"}
-  }
+    mongodb: {collection: 'files'},
+  },
 })
 export class Files extends Entity {
   @property({
@@ -16,12 +16,12 @@ export class Files extends Entity {
   @property({
     type: 'string',
   })
-  fileName?: string
+  fileName?: string;
 
   @property({
     type: 'string',
   })
-  file?: string
+  file?: string;
 
   constructor(data?: Partial<Files>) {
     super(data);

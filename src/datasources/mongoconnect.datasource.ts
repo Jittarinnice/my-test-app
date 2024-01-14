@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mongoconnect',
   connector: 'loopback-connector-mongodb',
-  url:`mongodb+srv://jittarin2604:sCKkwDijhDmz63Ni@cluster0.uibjbyu.mongodb.net/projecttest?retryWrites=true`,
+  url: `mongodb+srv://jittarin2604:sCKkwDijhDmz63Ni@cluster0.uibjbyu.mongodb.net/projecttest?retryWrites=true`,
   useNewUrlParser: true,
   ssl: true,
   sslValidate: false,
@@ -15,8 +15,10 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class MongoconnectDataSource extends juggler.DataSource
-  implements LifeCycleObserver {
+export class MongoconnectDataSource
+  extends juggler.DataSource
+  implements LifeCycleObserver
+{
   static dataSourceName = 'mongoconnect';
   static readonly defaultConfig = config;
 
